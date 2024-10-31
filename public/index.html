@@ -5,12 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Excalidraw App</title>
+    <link rel="stylesheet" href="/style.css">
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@excalidraw/excalidraw/dist/excalidraw.production.min.js"></script>
 </head>
 <body>
-    <div id="app" style="height: 100vh; width: 100vw;"></div>
+    <div id="app"></div>
     <script src="/app.js"></script>
+    <script>
+        function applyColorScheme(scheme) {
+            const root = document.documentElement;
+            if (scheme === 'dark') {
+                root.style.setProperty('--background-color-light', 'var(--background-color-dark)');
+                root.style.setProperty('--border-color-light', 'var(--border-color-dark)');
+            } else {
+                root.style.setProperty('--background-color-light', '#ffffff');
+                root.style.setProperty('--border-color-light', '#ccc');
+            }
+        }
+
+        // Initial check
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        applyColorScheme(prefersDarkScheme.matches ? 'dark' : 'light');
+
+        // Listen for changes
+        prefersDarkScheme.addEventListener('change', (event) => {
+            applyColorScheme(event.matches ? 'dark' : 'light');
+        });
+    </script>
 </body>
 </html>

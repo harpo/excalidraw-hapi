@@ -1,0 +1,41 @@
+/* public/style.css */
+
+/* Define CSS variables for light and dark mode */
+:root {
+    --border-color-light: #ccc;
+    --border-color-dark: #444;
+    --background-color-light: #ffffff;
+    --background-color-dark: #333333;
+}
+
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color-light);
+}
+
+#app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    padding: 20px; /* Add padding to prevent buttons from being cut off */
+    box-sizing: border-box;
+    background-color: var(--background-color-light);
+    border: 1px solid var(--border-color-light);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Excalidraw specific styles */
+.excalidraw {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+}
