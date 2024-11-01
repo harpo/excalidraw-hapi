@@ -13,26 +13,5 @@
 <body>
     <div id="app"></div>
     <script src="/app.js"></script>
-    <script>
-        function applyColorScheme(scheme) {
-            const root = document.documentElement;
-            if (scheme === 'dark') {
-                root.style.setProperty('--background-color-light', 'var(--background-color-dark)');
-                root.style.setProperty('--border-color-light', 'var(--border-color-dark)');
-            } else {
-                root.style.setProperty('--background-color-light', '#ffffff');
-                root.style.setProperty('--border-color-light', '#ccc');
-            }
-        }
-
-        // Initial check
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-        applyColorScheme(prefersDarkScheme.matches ? 'dark' : 'light');
-
-        // Listen for changes
-        prefersDarkScheme.addEventListener('change', (event) => {
-            applyColorScheme(event.matches ? 'dark' : 'light');
-        });
-    </script>
 </body>
 </html>
